@@ -25,12 +25,16 @@ abstract class _HomeBase with Store {
       'file': await MultipartFile.fromFile(file.path, filename: filename),
     });
 
-    Response response = await dio
-        .post('https://which-car-backend.herokuapp.com/car', data: formData);
-    // Response response =
-    //     await dio.post('http://10.0.2.2:3333/car', data: formData);
-
-    whichCar = PredictCar.fromJson(response.data);
-    loading = false;
+    try {
+      Response response = await dio
+          .post('https://which-car-backend.herokuapp.com/car', data: formData);
+      // Response response =
+      //     await dio.post('http://10.0.2.2:3333/car', data: formData);
+      whichCar = PredictCar.fromJson(response.data);
+      loading = false;
+    } catch (err) {
+      print(err);
+      loading = false;
+    }
   }
 }

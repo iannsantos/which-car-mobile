@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:whichcar/app/modules/home/components/row_information_widget.dart';
 
 import 'home_controller.dart';
 
@@ -133,104 +134,29 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Confidence: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '${controller.whichCar.confidence}',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
+                  RowInformationWidget(
+                    label: 'Confidence',
+                    text: controller.whichCar.confidence,
                   ),
                   SizedBox(height: 8),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Body style: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '${controller.whichCar.bodyStyle}',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
+                  RowInformationWidget(
+                    label: 'Body style',
+                    text: controller.whichCar.bodyStyle,
                   ),
                   SizedBox(height: 8),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Make: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '${controller.whichCar.make}',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
+                  RowInformationWidget(
+                    label: 'Make',
+                    text: controller.whichCar.make,
                   ),
                   SizedBox(height: 8),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Model: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '${controller.whichCar.model}',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
+                  RowInformationWidget(
+                    label: 'Model',
+                    text: controller.whichCar.model,
                   ),
                   SizedBox(height: 8),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Model Year: ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '${controller.whichCar.modelYear}',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 24,
-                        ),
-                      ),
-                    ],
+                  RowInformationWidget(
+                    label: 'Model Year',
+                    text: controller.whichCar.modelYear,
                   ),
                   SizedBox(height: 24),
                   Row(
