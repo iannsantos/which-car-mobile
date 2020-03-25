@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  flutter_native_splash: ^0.1.9
   image_picker: ^0.6.3+4
   dio: ^3.0.9
   flutter_mobx: ^1.0.1
@@ -74,3 +75,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 scripts:
   mobx: flutter pub run build_runner watch --delete-conflicting-outputs
+
+flutter_native_splash:
+  image: assets/car_white.png
+  color: "6A0DAD"
