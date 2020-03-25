@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whichcar/app/modules/home/components/row_information_widget.dart';
+import 'package:whichcar/app/modules/home/components/styled_container_widget.dart';
 
 import 'home_controller.dart';
 
@@ -44,80 +45,55 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       ),
       body: Observer(builder: (_) {
         if (controller.whichCar == null) {
-          return Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.blue,
-                  Colors.purple,
-                  Colors.red,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+          return StyledContainerWidget(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Take a picture of the car',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
-            ),
-            alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Take a picture of the car',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                controller.loading
-                    ? MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        onPressed: null,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            backgroundColor: Colors.white70,
-                          ),
-                        ),
-                      )
-                    : MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(
-                          Icons.photo_camera,
-                          color: Colors.white70,
-                          size: 36,
-                        ),
-                        onPressed: () async {
-                          var image = await ImagePicker.pickImage(
-                              source: ImageSource.camera);
-                          if (image != null) {
-                            controller.addImage(image.absolute);
-                          }
-                        },
+              SizedBox(
+                height: 16,
+              ),
+              controller.loading
+                  ? MaterialButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
                       ),
-              ],
-            ),
-          );
+                      onPressed: null,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.white70,
+                        ),
+                      ),
+                    )
+                  : MaterialButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Icon(
+                        Icons.photo_camera,
+                        color: Colors.white70,
+                        size: 36,
+                      ),
+                      onPressed: () async {
+                        var image = await ImagePicker.pickImage(
+                            source: ImageSource.camera);
+                        if (image != null) {
+                          controller.addImage(image.absolute);
+                        }
+                      },
+                    ),
+            ],
+          ));
         } else {
-          return Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.blue,
-                  Colors.purple,
-                  Colors.red,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
-            alignment: Alignment.center,
+          return StyledContainerWidget(
             child: Container(
               width: MediaQuery.of(context).size.width - 100,
               height: MediaQuery.of(context).size.height / 2,
