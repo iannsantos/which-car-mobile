@@ -243,7 +243,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         onPressed: () {
                           controller.whichCar = null;
                         },
-                        child: Icon(Icons.check),
+                        child: Icon(
+                          Icons.check,
+                          color: Colors.white,
+                        ),
                         color: Colors.green,
                       ),
                       SizedBox(
@@ -256,7 +259,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         onPressed: () {
                           controller.whichCar = null;
                         },
-                        child: Icon(Icons.close),
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                        ),
                         color: Colors.red,
                       ),
                     ],
