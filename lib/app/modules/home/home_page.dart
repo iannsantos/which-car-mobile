@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -83,7 +85,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         size: 36,
                       ),
                       onPressed: () async {
-                        var image = await ImagePicker.pickImage(
+                        File image = await ImagePicker.pickImage(
                             source: ImageSource.camera);
                         if (image != null) {
                           controller.addImage(image.absolute);
